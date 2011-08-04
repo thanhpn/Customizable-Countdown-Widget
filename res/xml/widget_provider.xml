@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	AppWidget default settings:
+	- setting width and height Minimum size in dip = (Number of cells * 74dip) - 2dip
+	- setting update period to 0 second(Never update we are using alarms)
+	- setting the initialLayout to layout/widget_text.xml
+-->
+
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="294dip"
+    android:minHeight="146dip"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget"
+    android:configure="com.corradodev.customizable_countdown_widget.configure"
+    />

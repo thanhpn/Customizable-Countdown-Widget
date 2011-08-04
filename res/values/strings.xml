@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Customizable Countdown Widget</string>
+    <string name="widget_text">Loading...</string>
+    <string name="title">Title:</string>
+    <string name="date">Event Date:</string>
+    <string name="image">Choose your background image:</string>
+    <string name="text_color">Choose color of all the text:</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+</resources>
