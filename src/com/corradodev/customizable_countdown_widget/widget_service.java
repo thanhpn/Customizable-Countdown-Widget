@@ -49,21 +49,30 @@ public class widget_service extends Service {
             Calendar cal2 = Calendar.getInstance();
             String[] Countdown_array = CountdownDate.split("-");
             // Set the date for both of the calendar instance
-            cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH) + 1, cal1.get(Calendar.DAY_OF_MONTH));//From
-            cal2.set(Integer.parseInt(Countdown_array[2]), Integer.parseInt(Countdown_array[0]), Integer.parseInt(Countdown_array[1]));//To
+            cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH)+1);//From Added one to date so the countdown doesnt include today
+            cal2.set(Integer.parseInt(Countdown_array[2]), Integer.parseInt(Countdown_array[0])-1, Integer.parseInt(Countdown_array[1]));//To
 
             // Get the represented date in milliseconds
-            long milis1 = cal1.getTimeInMillis();
-            long milis2 = cal2.getTimeInMillis();
-            
+            //long milis1 = cal1.getTimeInMillis();
+            //long milis2 = cal2.getTimeInMillis();
+            //Log.v(TAG, "milis1:" + milis1);
+            //Log.v(TAG, "milis2:" + milis2);
             // Calculate difference in milliseconds
-            long diff = milis2 - milis1;
-            long diffDays=0;
+            //long diff = milis2 - milis1;
+            //Log.v(TAG, "diff:" + diff);
+            //long diffDays=0;
             // Calculate difference in days
-            if (diff > 0)//If countdown still counting
-            {
-            	diffDays = diff / (24 * 60 * 60 * 1000);
-            }
+           // if (cal1 > cal2)//If countdown still counting
+            //{
+            	long diffDays = daysBetween(cal1,cal2);
+            //}
+            Log.v(TAG, "Current Date: " + cal1.getTime());
+            Log.v(TAG, "Picked Date: " + cal2.getTime());
+            Log.v(TAG, "diffdays:" + diffDays);
+
+            
+
+			
             
         	// Create Remote View
         	RemoteViews remoteView = new RemoteViews(getApplicationContext()
@@ -100,6 +109,15 @@ public class widget_service extends Service {
         // We don't need to bind to this service
         return null;
     }
-
+    
+	public static long daysBetween(Calendar startDate, Calendar endDate) {  
+		  Calendar date = (Calendar) startDate.clone();  
+		  long daysBetween = 0;  
+		  while (date.before(endDate)) {  
+		    date.add(Calendar.DAY_OF_MONTH, 1);  
+		    daysBetween++;  
+		  }  
+		  return daysBetween;  
+	}  
 }
 
