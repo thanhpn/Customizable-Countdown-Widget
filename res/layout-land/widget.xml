@@ -18,6 +18,7 @@
     android:padding="5dp"
     android:textColor="@android:color/white"
     android:layout_alignParentLeft="true"
+    style="@style/TextViewShadow"
     />
 <TextView android:id="@+id/widget_date"
     android:layout_height="wrap_content" 
@@ -28,6 +29,7 @@
     android:textColor="@android:color/white" 
     android:layout_alignParentTop="true"
     android:layout_alignParentRight="true"
+    style="@style/TextViewShadow"
     />
 <TextView android:id="@+id/widget_days"
     android:layout_height="wrap_content" 
@@ -38,5 +40,6 @@
     android:textColor="@android:color/white"
     android:layout_alignParentBottom="true"
     android:layout_alignParentLeft="true"
+    style="@style/TextViewShadow"
     />
 </RelativeLayout>

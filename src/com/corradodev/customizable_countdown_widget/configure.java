@@ -150,7 +150,7 @@ public class configure extends Activity {
             intent.setData(selectedImage);//Image to crop
             /*LANDSCAPE(X,Y)(424,142)
              *PORTRAIT(X,Y)(320,200)*/
-            
+            intent.putExtra("noFaceDetection", true);
             intent.putExtra("outputX", 424);
             intent.putExtra("outputY", 265);
             intent.putExtra("aspectX", 8);

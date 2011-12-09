@@ -64,10 +64,6 @@ public class widget_service extends Service {
             {
             	diffDays = diff / (24 * 60 * 60 * 1000);
             }
-
-            
-
-			
             
         	// Create Remote View
         	RemoteViews remoteView = new RemoteViews(getApplicationContext()
@@ -104,4 +100,6 @@ public class widget_service extends Service {
         // We don't need to bind to this service
         return null;
     }
+
 }
+

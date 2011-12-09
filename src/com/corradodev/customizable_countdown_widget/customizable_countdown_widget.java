@@ -54,7 +54,7 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 		Log.v(TAG, "Update End");
 		super.onUpdate(context, appWidgetManager, appWidgetIds); 
     }	
-	
+
 	//This happens before all widget actions
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -122,6 +122,4 @@ public class customizable_countdown_widget extends AppWidgetProvider {
         }
         Log.v(TAG, "End Set alarm");
     }
-	
-
 }
