@@ -49,8 +49,11 @@ public class widget_service extends Service {
             Calendar cal2 = Calendar.getInstance();
             String[] Countdown_array = CountdownDate.split("-");
             // Set the date for both of the calendar instance
-            cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH)+1);//From Added one to date so the countdown doesnt include today
-            cal2.set(Integer.parseInt(Countdown_array[2]), Integer.parseInt(Countdown_array[0])-1, Integer.parseInt(Countdown_array[1]));//To
+            //Curent time and date
+            cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH));//From Added one to date so the countdown doesnt include today
+            
+            //Midnight on date
+            cal2.set(Integer.parseInt(Countdown_array[2]), Integer.parseInt(Countdown_array[0])-1, Integer.parseInt(Countdown_array[1]),0,0,0);//To
 
             // Get the represented date in milliseconds
             //long milis1 = cal1.getTimeInMillis();

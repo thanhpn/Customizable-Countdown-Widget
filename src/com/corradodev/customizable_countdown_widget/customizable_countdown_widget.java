@@ -30,11 +30,11 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 		Log.v(TAG, "Update Begin");
 		//Toast.makeText(context, "onUpdate", Toast.LENGTH_SHORT).show();
 		
-		//Calculate milliseconds until next day midnight
+		//Calculate milliseconds until next day midnight+1 minute so it does not count current date
 		Calendar midnight = Calendar.getInstance();
 		midnight.add(Calendar.DAY_OF_MONTH, 1);
 		midnight.set(Calendar.HOUR_OF_DAY,0);
-		midnight.set(Calendar.MINUTE,0);
+		midnight.set(Calendar.MINUTE,1);
 		midnight.set(Calendar.SECOND,0);
 		midnight.set(Calendar.MILLISECOND,0);
 		
