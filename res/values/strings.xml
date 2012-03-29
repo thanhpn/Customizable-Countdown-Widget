@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Customizable Countdown Widget</string>
+    <string name="app_name_small">Customizable Countdown Widget 2x2</string>
+    <string name="app_name_large">Customizable Countdown Widget 4x2</string>
     <string name="widget_text">Loading...</string>
     <string name="title">Title:</string>
     <string name="date">Event Date:</string>
-    <string name="image">Choose your background image:</string>
-    <string name="text_color">Choose color of all the text:</string>
+    <string name="image">Background Image:</string>
+    <string name="text_color">Text Color:</string>
+    <string name="pick_color">Pick Color</string>
+    <string name="pick_image">Pick Image</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 </resources>

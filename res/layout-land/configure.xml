@@ -1,73 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:stretchColumns="1">
-    <TableRow>
-	    <TextView
+    android:layout_height="fill_parent">
+    <TextView
 	    android:id="@+id/label_title"
 		android:text="@string/title" 
 	    android:layout_height="wrap_content" 
-	    android:layout_width="wrap_content"
-	    />
-	    <TextView
-	    android:id="@+id/label_image"
-		android:text="@string/image" 
-	    android:layout_height="wrap_content" 
-	    android:layout_width="wrap_content"
-	    />
-    </TableRow>
-    <TableRow>
-	    <EditText
+	    android:layout_width="fill_parent"
+    />
+   <EditText
 	    android:id="@+id/configure_title"
+	    android:layout_below="@+id/label_title" 
 	    android:layout_width="fill_parent" 
 	    android:layout_height="wrap_content" 
-	    />
-        <Button
-        android:id="@+id/image_button"
+	    android:singleLine="true"
+    />
+	<LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/configure_title" >
+		<LinearLayout
+	    	android:orientation="vertical"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content">
+		    <TextView
+			    android:id="@+id/label_date"
+				android:text="@string/date" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="wrap_content"
+		    />
+		   <EditText
+		    	android:id="@+id/countdown_date"
+			    android:focusable="false"
+			    android:layout_width="wrap_content" 
+			    android:layout_height="wrap_content" 
+	    	/>
+		</LinearLayout>
+				<LinearLayout
+	    	android:orientation="vertical"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginLeft="40dp">
+		    <TextView
+			    android:id="@+id/label_image"
+				android:text="@string/image" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="wrap_content"
+		    />
+	        <Button
+		        android:id="@+id/image_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/pick_image" 
+	    	/>
+		</LinearLayout>
+				<LinearLayout
+	    	android:orientation="vertical"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginLeft="40dp">
+		    	        <TextView
+			    android:id="@+id/label_text_color"
+				android:text="@string/text_color" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="wrap_content"
+		    />
+		    <LinearLayout
+	    	android:orientation="horizontal"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content">
+		   			<Button
+			        android:id="@+id/color_picker"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/pick_color"
+			    />
+		        <ImageView android:id="@+id/color_picked_image"
+				    android:layout_width="40dp"
+				    android:layout_height="40dp"
+				    android:layout_marginTop="2dp"   
+				/>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+	<Button
+        android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pick Image"
-    	/>
-    </TableRow>
-    <TableRow>
-	     <TextView
-	    android:id="@+id/label_date"
-		android:text="@string/date" 
-	    android:layout_height="wrap_content" 
-	    android:layout_width="wrap_content"
-	    />
-        <TextView
-	    android:id="@+id/label_text_color"
-		android:text="@string/text_color" 
-	    android:layout_height="wrap_content" 
-	    android:layout_width="wrap_content"
-	    />
-    </TableRow>
-    <TableRow>
-	    <DatePicker
-	    	android:id="@+id/countdown_datepicker"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	    />
-	    <Spinner
-		android:id="@+id/color_spinner"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		/>
-    </TableRow>
-    <TableRow>
-	   	<Button
-	       android:id="@+id/cancel_button"
-	       android:layout_width="wrap_content"
-	       android:layout_height="wrap_content"
-	       android:text="@string/cancel"
-	    />
-	    <Button
-	        android:id="@+id/ok_button"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/ok"
-	    />
-    </TableRow>
-</TableLayout>
+        android:text="@string/cancel"
+        android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true"
+    />
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        android:layout_toLeftOf="@+id/cancel_button"
+        android:layout_alignTop="@+id/cancel_button"
+    />
+</RelativeLayout>

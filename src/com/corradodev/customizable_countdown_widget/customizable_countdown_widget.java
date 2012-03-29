@@ -1,7 +1,6 @@
 package com.corradodev.customizable_countdown_widget;
 
 import java.util.Calendar;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.PendingIntent.CanceledException;
@@ -11,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 
 public class customizable_countdown_widget extends AppWidgetProvider {
 	private static final String TAG = "customizable_countdown_widget";
@@ -27,8 +25,7 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds) {
-		Log.v(TAG, "Update Begin");
-		//Toast.makeText(context, "onUpdate", Toast.LENGTH_SHORT).show();
+		Log.v(TAG, "AppWidgetProvider onUpdate");
 		
 		//Calculate milliseconds until next day midnight+1 minute so it does not count current date
 		Calendar midnight = Calendar.getInstance();
@@ -39,11 +36,9 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 		midnight.set(Calendar.MILLISECOND,0);
 		
 		long midnightMilli= midnight.getTimeInMillis();
-		Log.v(TAG, Long.toString(midnightMilli));
-		Log.v(TAG, Long.toString(System.currentTimeMillis()));
+		Log.v(TAG, "Midnight Next Day in Milliseconds(+1 min):" + midnightMilli);
 		for (int mAppWidgetId : appWidgetIds) {
-			PendingIntent updatepending = customizable_countdown_widget
-					.makeControlPendingIntent(context,"update", mAppWidgetId);
+			PendingIntent updatepending = customizable_countdown_widget.makeControlPendingIntent(context,"update", mAppWidgetId);
 			setAlarm(context, mAppWidgetId, midnightMilli);
 			try {
 				updatepending.send();
@@ -51,15 +46,12 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 				e.printStackTrace();
 			}
 		}
-		Log.v(TAG, "Update End");
 		super.onUpdate(context, appWidgetManager, appWidgetIds); 
     }	
 
 	//This happens before all widget actions
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Log.v(TAG, "Recieve Begin");
-		//Toast.makeText(context, "onRecieve", Toast.LENGTH_SHORT).show();	
 		// v1.5 fix that doesn't call onDelete Action
 		final String action = intent.getAction();
 		if (AppWidgetManager.ACTION_APPWIDGET_DELETED.equals(action)) {
@@ -77,12 +69,9 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 	// When a widget is deleted
 	@Override
 	public void onDeleted(Context context, int[] appWidgetIds) {
-		//on widget delete
-		//Toast.makeText(context, "onDelete", Toast.LENGTH_SHORT).show();
 		//Delete all alarms when widget is deleted
         for (int appWidgetId : appWidgetIds) {       
             setAlarm(context, appWidgetId, 0);
-            Log.v(TAG, "Delete alarm");
         }
 		super.onDeleted(context, appWidgetIds);
 	}
@@ -93,6 +82,7 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 		//Ensure all services are stopped when disabled
 		context.stopService(new Intent(context,widget_service.class));
 		super.onDisabled(context);
+		Log.v(TAG, "Kill Service because all widgets are deleted");
 	}
 	
 	//Sets up Pending intent
@@ -109,17 +99,16 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 	
 	//Removes and adds alarm
 	public static void setAlarm(Context context, int appWidgetId, long midnightMilli) {
-		Log.v(TAG, "Start Set alarm");
         PendingIntent newPending = makeControlPendingIntent(context,"update",appWidgetId);
         
         AlarmManager alarms = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (midnightMilli != 0) {
-        	Log.v(TAG, "Setup alaram");
             alarms.setRepeating(1, midnightMilli,AlarmManager.INTERVAL_DAY, newPending);
+            Log.v(TAG, "Setup Alarm:"+appWidgetId);
         } else {
         	// on a negative updateRate stop the refreshing 
             alarms.cancel(newPending);
+            Log.v(TAG, "Cancel Alarm:"+appWidgetId);
         }
-        Log.v(TAG, "End Set alarm");
     }
 }

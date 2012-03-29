@@ -1,5 +1,5 @@
 package com.corradodev.customizable_countdown_widget;
-
+//We use this because base64 encoding is not supported until API 8
 /**
  * A Base64 Encoder/Decoder.
  * 
