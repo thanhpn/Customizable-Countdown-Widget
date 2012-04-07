@@ -32,6 +32,7 @@ public class widget_service extends Service {
         String mTitle = mPrefs.getString("Title-" + mAppWidgetId, "");
         String mImage = mPrefs.getString("Image-" + mAppWidgetId, "");
         String mColor = mPrefs.getString("Color-" + mAppWidgetId, "");
+        String mWidgetSize = mPrefs.getString("WidgetSize-" + mAppWidgetId, "");
         //String mWidgetSize = mPrefs.getString("WidgetSize-" + mAppWidgetId, "");
         //If countdown date exists then update view
         if(mCountdownDate != "")
@@ -65,9 +66,15 @@ public class widget_service extends Service {
 			remoteView.setTextColor(R.id.widget_title, color);
 			remoteView.setTextColor(R.id.widget_date, color);
 			remoteView.setTextColor(R.id.widget_days, color);
+			if(mWidgetSize =="Small")
+			{
+				remoteView.setFloat(R.id.widget_title, "setTextSize", 16);
+				remoteView.setFloat(R.id.widget_date, "setTextSize", 16);
+				remoteView.setFloat(R.id.widget_days, "setTextSize", 16);
+			}
 			remoteView.setTextViewText(R.id.widget_title, mTitle);
 			remoteView.setTextViewText(R.id.widget_date, mCountdownDate);
-			remoteView.setTextViewText(R.id.widget_days, Long.toString(mDiffDays)+ " Days Left");
+			remoteView.setTextViewText(R.id.widget_days, Long.toString(mDiffDays)+ " Days");
 			remoteView.setOnClickPendingIntent(R.id.widget_layout, pendingIntent);//Make layout clickable
 			
 			// apply changes to widget
