@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:id="@+id/configure_layout">
     <TextView
     	android:id="@+id/label_title"
 		android:text="@string/title" 
@@ -13,6 +15,8 @@
     	android:layout_width="fill_parent" 
     	android:layout_height="wrap_content" 
     	android:layout_below="@+id/label_title" 
+    	android:inputType="text"
+	    android:hint=""
     	android:singleLine="true"
     />
     <TextView
@@ -27,6 +31,8 @@
 	    android:focusable="false"
 	    android:layout_width="wrap_content" 
 	    android:layout_height="wrap_content" 
+	    android:inputType="text"
+	    android:hint=""
 	    android:layout_below="@+id/label_date" 
     />
     <TextView
@@ -63,7 +69,16 @@
 	    android:layout_marginTop="2dip"   
 	    android:layout_toRightOf="@+id/color_picker"
 	    android:layout_alignTop="@+id/color_picker"
+	    android:contentDescription="@string/text_color"
 	/>
+      <com.google.ads.AdView android:id="@+id/adView"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         ads:adUnitId="a14e1f98d3d484a"
+                         ads:adSize="BANNER"
+                         ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID"
+                         ads:loadAdOnCreate="true"
+                         android:layout_above="@+id/cancel_button" />
 	<Button
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"

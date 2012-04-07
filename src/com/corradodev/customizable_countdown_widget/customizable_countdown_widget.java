@@ -9,10 +9,10 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
+//import android.util.Log;
 
 public class customizable_countdown_widget extends AppWidgetProvider {
-	private static final String TAG = "customizable_countdown_widget";
+	//private static final String TAG = "customizable_countdown_widget";
 	
 	//When first instance of the widget is defined
 	@Override
@@ -25,7 +25,7 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds) {
-		Log.v(TAG, "AppWidgetProvider onUpdate");
+		//Log.v(TAG, "AppWidgetProvider onUpdate");
 		
 		//Calculate milliseconds until next day midnight+1 minute so it does not count current date
 		Calendar midnight = Calendar.getInstance();
@@ -36,7 +36,7 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 		midnight.set(Calendar.MILLISECOND,0);
 		
 		long midnightMilli= midnight.getTimeInMillis();
-		Log.v(TAG, "Midnight Next Day in Milliseconds(+1 min):" + midnightMilli);
+		//Log.v(TAG, "Midnight Next Day in Milliseconds(+1 min):" + midnightMilli);
 		for (int mAppWidgetId : appWidgetIds) {
 			PendingIntent updatepending = customizable_countdown_widget.makeControlPendingIntent(context,"update", mAppWidgetId);
 			setAlarm(context, mAppWidgetId, midnightMilli);
@@ -82,7 +82,7 @@ public class customizable_countdown_widget extends AppWidgetProvider {
 		//Ensure all services are stopped when disabled
 		context.stopService(new Intent(context,widget_service.class));
 		super.onDisabled(context);
-		Log.v(TAG, "Kill Service because all widgets are deleted");
+		//Log.v(TAG, "Kill Service because all widgets are deleted");
 	}
 	
 	//Sets up Pending intent
@@ -104,11 +104,11 @@ public class customizable_countdown_widget extends AppWidgetProvider {
         AlarmManager alarms = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (midnightMilli != 0) {
             alarms.setRepeating(1, midnightMilli,AlarmManager.INTERVAL_DAY, newPending);
-            Log.v(TAG, "Setup Alarm:"+appWidgetId);
+            //Log.v(TAG, "Setup Alarm:"+appWidgetId);
         } else {
         	// on a negative updateRate stop the refreshing 
             alarms.cancel(newPending);
-            Log.v(TAG, "Cancel Alarm:"+appWidgetId);
+            //Log.v(TAG, "Cancel Alarm:"+appWidgetId);
         }
     }
 }

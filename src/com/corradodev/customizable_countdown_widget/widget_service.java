@@ -10,16 +10,16 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.IBinder;
-import android.util.Log;
+//import android.util.Log;
 import android.widget.RemoteViews;
 
 public class widget_service extends Service {
-	private static final String TAG = "widget_service";
+	//private static final String TAG = "widget_service";
 	@Override
     public void onStart(Intent intent, int startId) {
 		//Get App ID
 		int mAppWidgetId = intent.getExtras().getInt(AppWidgetManager.EXTRA_APPWIDGET_ID);
-		Log.v(TAG, "Service Start:" + mAppWidgetId);
+		//Log.v(TAG, "Service Start:" + mAppWidgetId);
 		
     	//This is to load configuration when its clicked
         Intent clickIntent = new Intent(getBaseContext(), configure.class);
@@ -32,11 +32,11 @@ public class widget_service extends Service {
         String mTitle = mPrefs.getString("Title-" + mAppWidgetId, "");
         String mImage = mPrefs.getString("Image-" + mAppWidgetId, "");
         String mColor = mPrefs.getString("Color-" + mAppWidgetId, "");
-        String mWidgetSize = mPrefs.getString("WidgetSize-" + mAppWidgetId, "");
+        //String mWidgetSize = mPrefs.getString("WidgetSize-" + mAppWidgetId, "");
         //If countdown date exists then update view
         if(mCountdownDate != "")
         {
-        	Log.v(TAG, "Service Updated");
+        	//Log.v(TAG, "Service Updated");
         	//Calculate days to countdown
         	Calendar cal1 = Calendar.getInstance();
             Calendar cal2 = Calendar.getInstance();
@@ -47,9 +47,9 @@ public class widget_service extends Service {
             //Midnight on date
             cal2.set(Integer.parseInt(mDateArray[2]), Integer.parseInt(mDateArray[0])-1, Integer.parseInt(mDateArray[1]),0,0,0);//To
             long mDiffDays = daysBetween(cal1,cal2);
-            Log.v(TAG, "Current Date: " + cal1.getTime());
-            Log.v(TAG, "Picked Date: " + cal2.getTime());
-            Log.v(TAG, "Diff Days:" + mDiffDays);
+            //Log.v(TAG, "Current Date: " + cal1.getTime());
+            //Log.v(TAG, "Picked Date: " + cal2.getTime());
+            //Log.v(TAG, "Diff Days:" + mDiffDays);
             
         	// Create Remote View
         	RemoteViews remoteView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.widget);

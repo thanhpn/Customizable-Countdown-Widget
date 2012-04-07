@@ -1,7 +1,6 @@
 package com.corradodev.customizable_countdown_widget;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.PendingIntent.CanceledException;
 import android.appwidget.AppWidgetManager;
@@ -47,7 +46,6 @@ public class configure extends Activity{
 	private ImageView mImgSelectedColor;
 	private String mWidgetSize="Large";
 	public static final String PREFS_NAME = "customizable_countdown_widget";
-	
 	private Uri mImageCaptureUri;
 	
     @Override
@@ -76,7 +74,7 @@ public class configure extends Activity{
         
         //Get Size of widget
         AppWidgetProviderInfo providerInfo = AppWidgetManager.getInstance(getBaseContext()).getAppWidgetInfo(mAppWidgetId);
-        if(providerInfo.minWidth == 110)
+        if(providerInfo.label.equals("Customizable Countdown Widget 2x2"))
         {
         	mWidgetSize="Small";
         }
@@ -128,18 +126,13 @@ public class configure extends Activity{
         });
     	mTxtDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	showDialog(0);
+            	new DatePickerDialog(configure.this,mDateSetListener,mSelectedYear, mSelectedMonth, mSelectedDay).show();
             }
         });
+    	
         findViewById(R.id.image_button).setOnClickListener(imageOnClickListener);
         findViewById(R.id.ok_button).setOnClickListener(okOnClickListener);
         findViewById(R.id.cancel_button).setOnClickListener(cancelOnClickListener); 
-    }
-    
-//Opens Date Dialog
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        return new DatePickerDialog(this,mDateSetListener,mSelectedYear, mSelectedMonth, mSelectedDay);
     }
     
 //When a date is picked
@@ -167,10 +160,7 @@ public class configure extends Activity{
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == 0){
 			if (resultCode == Activity.RESULT_OK) {
-				if (requestCode == 1)
-				{
-					mImageCaptureUri = data.getData();
-				}
+				mImageCaptureUri = data.getData();
 				Intent mIntent = new Intent("com.android.camera.action.CROP");
 				mIntent.setClassName("com.android.gallery", "com.android.camera.CropImage");
 				mIntent.setData(mImageCaptureUri);//Image to crop

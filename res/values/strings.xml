@@ -3,7 +3,7 @@
     <string name="app_name">Customizable Countdown Widget</string>
     <string name="app_name_small">Customizable Countdown Widget 2x2</string>
     <string name="app_name_large">Customizable Countdown Widget 4x2</string>
-    <string name="widget_text">Loading...</string>
+    <string name="widget_text">Loading&#8230;</string>
     <string name="title">Title:</string>
     <string name="date">Event Date:</string>
     <string name="image">Background Image:</string>
@@ -12,4 +12,6 @@
     <string name="pick_image">Pick Image</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="main_text">"Thanks for downloading my widget!\r\n\r\nA widget is an application for your home screens.  Below is a video that explains more on widgets on the most common phones.\r\nIf it does not apply then google 'How do I add widgets on [YOUR PHONE]'.\r\n\r\nI have noticed on new phones with Ice Cream Sandwich OS you have to restart your phone to have the widget appear in the list.\r\n\r\nI hope you enjoy using the widget I built.  Feel free to email any feedback or questions to app@corradodev.com\r\n"</string>
+	<string name="main_button">How To Add Widget Video</string>
 </resources>
