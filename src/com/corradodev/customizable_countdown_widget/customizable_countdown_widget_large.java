@@ -1,3 +1,0 @@
-package com.corradodev.customizable_countdown_widget;
-public class customizable_countdown_widget_large extends customizable_countdown_widget {
-}

@@ -19,7 +19,7 @@ public class ColorPickerDialog extends Dialog{
 	private OnColorPickedListener colorPickedListener;
 	public ColorPickerDialog(Context context) {
 		super(context);
-		this.setTitle("Color Picker Dialog");
+		this.setTitle("Pick Color");
 	}
 	public List<Integer> colorList = new ArrayList<Integer>();
 	@Override
@@ -59,7 +59,7 @@ public class ColorPickerDialog extends Dialog{
 			this.context = context;
 
 			// defines the width of each color square
-			colorGridColumnWidth = 40;
+			colorGridColumnWidth = 70;
 
 			// for convenience and better reading, we place the colors in a two dimension array
 			String colors[][] = { { "822111", "AC2B16", "CC3A21", "E66550", "EFA093", "F6C5BE" }, 

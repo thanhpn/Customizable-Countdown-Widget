@@ -33,7 +33,6 @@ public class widget_service extends Service {
         String mImage = mPrefs.getString("Image-" + mAppWidgetId, "");
         String mColor = mPrefs.getString("Color-" + mAppWidgetId, "");
         String mWidgetSize = mPrefs.getString("WidgetSize-" + mAppWidgetId, "");
-        //String mWidgetSize = mPrefs.getString("WidgetSize-" + mAppWidgetId, "");
         //If countdown date exists then update view
         if(mCountdownDate != "")
         {
@@ -63,6 +62,11 @@ public class widget_service extends Service {
 				remoteView.setImageViewBitmap(R.id.widget_background, bitmap);
 	        }
 			int color=Integer.parseInt(mColor);
+			//Update code from version 4 to version 7 (5 and 6 were bad versions)
+			if(color >= 0 && color<=12)
+			{
+				color=android.graphics.Color.BLACK;
+			}
 			remoteView.setTextColor(R.id.widget_title, color);
 			remoteView.setTextColor(R.id.widget_date, color);
 			remoteView.setTextColor(R.id.widget_days, color);

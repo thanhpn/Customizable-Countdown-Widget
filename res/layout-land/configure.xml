@@ -18,6 +18,7 @@
 	    android:inputType="text"
 	    android:hint=""
 	    android:singleLine="true"
+	    android:imeOptions="actionDone"
     />
 	<LinearLayout
     	android:orientation="horizontal"
