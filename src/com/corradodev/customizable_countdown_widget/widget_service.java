@@ -17,6 +17,10 @@ public class widget_service extends Service {
 	//private static final String TAG = "widget_service";
 	@Override
     public void onStart(Intent intent, int startId) {
+		if(intent==null)
+		{
+			return;
+		}
 		//Get App ID
 		int mAppWidgetId = intent.getExtras().getInt(AppWidgetManager.EXTRA_APPWIDGET_ID);
 		//Log.v(TAG, "Service Start:" + mAppWidgetId);

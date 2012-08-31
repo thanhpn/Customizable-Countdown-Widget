@@ -162,7 +162,7 @@ public class configure extends Activity{
 			if (resultCode == Activity.RESULT_OK) {
 				mImageCaptureUri = data.getData();
 				Intent mIntent = new Intent("com.android.camera.action.CROP");
-				mIntent.setClassName("com.android.gallery", "com.android.camera.CropImage");
+				//mIntent.setClassName("com.android.gallery", "com.android.camera.CropImage");
 				mIntent.setData(mImageCaptureUri);//Image to crop
 				//(Number of cells * 74dip) - 2dip
 				mIntent.putExtra("noFaceDetection", true);
