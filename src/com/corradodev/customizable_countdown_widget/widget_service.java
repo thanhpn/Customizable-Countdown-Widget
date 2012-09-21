@@ -81,7 +81,7 @@ public class widget_service extends Service {
 				remoteView.setFloat(R.id.widget_days, "setTextSize", 16);
 			}
 			remoteView.setTextViewText(R.id.widget_title, mTitle);
-			remoteView.setTextViewText(R.id.widget_date, mCountdownDate);
+			remoteView.setTextViewText(R.id.widget_date,  mDateArray[0] + "-" + mDateArray[1] + "-" + Integer.toString(Integer.parseInt(mDateArray[2])-2000));
 			remoteView.setTextViewText(R.id.widget_days, Long.toString(mDiffDays)+ " Days");
 			remoteView.setOnClickPendingIntent(R.id.widget_layout, pendingIntent);//Make layout clickable
 			
