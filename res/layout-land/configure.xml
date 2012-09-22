@@ -1,120 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/configure_layout"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:id="@+id/configure_layout">
+    android:layout_height="fill_parent" >
+
     <TextView
-	    android:id="@+id/label_title"
-		android:text="@string/title" 
-	    android:layout_height="wrap_content" 
-	    android:layout_width="fill_parent"
-    />
-   <EditText
-	    android:id="@+id/configure_title"
-	    android:layout_below="@+id/label_title" 
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content" 
-	    android:inputType="text"
-	    android:hint=""
-	    android:singleLine="true"
-	    android:imeOptions="actionDone"
-    />
-	<LinearLayout
-    	android:orientation="horizontal"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:layout_below="@+id/configure_title"
-		android:id="@+id/linear_layout">
-		<LinearLayout
-	    	android:orientation="vertical"
-	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content">
-		    <TextView
-			    android:id="@+id/label_date"
-				android:text="@string/date" 
-			    android:layout_height="wrap_content" 
-			    android:layout_width="wrap_content"
-		    />
-		   <EditText
-		    	android:id="@+id/countdown_date"
-			    android:focusable="false"
-			    android:layout_width="wrap_content" 
-			    android:layout_height="wrap_content"
-			    android:inputType="text"
-	    		android:hint=""
-	    	/>
-		</LinearLayout>
-				<LinearLayout
-	    	android:orientation="vertical"
-	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"
-	    	android:layout_marginLeft="40dp">
-		    <TextView
-			    android:id="@+id/label_image"
-				android:text="@string/image" 
-			    android:layout_height="wrap_content" 
-			    android:layout_width="wrap_content"
-		    />
-	        <Button
-		        android:id="@+id/image_button"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="@string/pick_image" 
-	    	/>
-		</LinearLayout>
-				<LinearLayout
-	    	android:orientation="vertical"
-	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"
-	    	android:layout_marginLeft="40dp">
-		    	        <TextView
-			    android:id="@+id/label_text_color"
-				android:text="@string/text_color" 
-			    android:layout_height="wrap_content" 
-			    android:layout_width="wrap_content"
-		    />
-		    <LinearLayout
-	    	android:orientation="horizontal"
-	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content">
-		   			<Button
-			        android:id="@+id/color_picker"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:text="@string/pick_color"
-			    />
-		        <ImageView android:id="@+id/color_picked_image"
-				    android:layout_width="40dp"
-				    android:layout_height="40dp"
-				    android:layout_marginTop="2dp"  
-				    android:contentDescription="@string/text_color"
-				/>
-			</LinearLayout>
-		</LinearLayout>
-	</LinearLayout>
-      <com.google.ads.AdView android:id="@+id/adView"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         ads:adUnitId="a14e1f98d3d484a"
-                         ads:adSize="BANNER"
-                         ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID"
-                         ads:loadAdOnCreate="true"
-                         android:layout_above="@+id/ok_button" />
+        android:id="@+id/label_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title" />
+
+    <EditText
+        android:id="@+id/configure_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_title"
+        android:hint=""
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/configure_title"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/label_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/countdown_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint=""
+                    android:inputType="text" />
+
+                <CheckBox
+                    android:id="@+id/hide_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hide" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/label_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/image" />
+
+            <Button
+                android:id="@+id/image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pick_image" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/label_text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_color" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/color_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pick_color" />
+
+                <ImageView
+                    android:id="@+id/color_picked_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="3dp"
+                    android:contentDescription="@string/text_color" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ok_button"
+        android:layout_alignParentRight="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="a14e1f98d3d484a"
+        ads:loadAdOnCreate="true"
+        ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID" />
+
     <Button
         android:id="@+id/ok_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ok"
         android:layout_alignParentBottom="true"
-		android:layout_alignParentRight="true"
-    />
+        android:layout_alignParentRight="true"
+        android:text="@string/ok" />
+
     <Button
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        android:layout_toLeftOf="@+id/ok_button"
         android:layout_alignTop="@+id/ok_button"
-    />
+        android:layout_toLeftOf="@+id/ok_button"
+        android:text="@string/cancel" />
+
 </RelativeLayout>

@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.IBinder;
 //import android.util.Log;
+import android.view.View;
 import android.widget.RemoteViews;
 
 public class widget_service extends Service {
@@ -36,6 +37,7 @@ public class widget_service extends Service {
         String mTitle = mPrefs.getString("Title-" + mAppWidgetId, "");
         String mImage = mPrefs.getString("Image-" + mAppWidgetId, "");
         String mColor = mPrefs.getString("Color-" + mAppWidgetId, "");
+        boolean mHideDate = mPrefs.getBoolean("HideDate-" + mAppWidgetId, false);
         String mWidgetSize = mPrefs.getString("WidgetSize-" + mAppWidgetId, "");
         //If countdown date exists then update view
         if(mCountdownDate != "")
@@ -82,6 +84,12 @@ public class widget_service extends Service {
 			}
 			remoteView.setTextViewText(R.id.widget_title, mTitle);
 			remoteView.setTextViewText(R.id.widget_date,  mDateArray[0] + "-" + mDateArray[1] + "-" + Integer.toString(Integer.parseInt(mDateArray[2])-2000));
+			if(mHideDate){
+				remoteView.setViewVisibility(R.id.widget_date, View.GONE);
+			}
+			else{
+				remoteView.setViewVisibility(R.id.widget_date, View.VISIBLE);
+			}
 			remoteView.setTextViewText(R.id.widget_days, Long.toString(mDiffDays)+ " Days");
 			remoteView.setOnClickPendingIntent(R.id.widget_layout, pendingIntent);//Make layout clickable
 			

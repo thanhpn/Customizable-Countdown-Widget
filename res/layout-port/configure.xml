@@ -1,99 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/configure_layout"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:id="@+id/configure_layout">
+    android:layout_height="fill_parent" >
+
     <TextView
-    	android:id="@+id/label_title"
-		android:text="@string/title" 
-    	android:layout_height="wrap_content" 
-    	android:layout_width="wrap_content"
-    />
+        android:id="@+id/label_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title" />
+
     <EditText
-    	android:id="@+id/configure_title"
-    	android:layout_width="fill_parent" 
-    	android:layout_height="wrap_content" 
-    	android:layout_below="@+id/label_title" 
-    	android:inputType="text"
-	    android:hint=""
-    	android:singleLine="true"
-    	android:imeOptions="actionDone"
-    />
+        android:id="@+id/configure_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_title"
+        android:hint=""
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:singleLine="true" />
+
     <TextView
-    	android:id="@+id/label_date"
-		android:text="@string/date" 
-    	android:layout_height="wrap_content" 
-    	android:layout_width="wrap_content"
-    	android:layout_below="@+id/configure_title"  
-    />
+        android:id="@+id/label_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/configure_title"
+        android:text="@string/date" />
+
     <EditText
-    	android:id="@+id/countdown_date"
-	    android:focusable="false"
-	    android:layout_width="wrap_content" 
-	    android:layout_height="wrap_content" 
-	    android:inputType="text"
-	    android:hint=""
-	    android:layout_below="@+id/label_date" 
-    />
+        android:id="@+id/countdown_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_date"
+        android:focusable="false"
+        android:hint=""
+        android:inputType="text" />
+
+    <CheckBox
+        android:id="@+id/hide_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/countdown_date"
+        android:layout_toRightOf="@+id/countdown_date"
+        android:text="@string/hide" />
+
     <TextView
-	    android:id="@+id/label_image"
-		android:text="@string/image" 
-	    android:layout_height="wrap_content" 
-	    android:layout_width="wrap_content"
-	    android:layout_below="@+id/countdown_date"  
-    />
+        android:id="@+id/label_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdown_date"
+        android:text="@string/image" />
+
     <Button
         android:id="@+id/image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pick_image" 
-        android:layout_below="@+id/label_image"  
-    />
+        android:layout_below="@+id/label_image"
+        android:text="@string/pick_image" />
+
     <TextView
-	    android:id="@+id/label_text_color"
-		android:text="@string/text_color" 
-	    android:layout_height="wrap_content" 
-	    android:layout_width="wrap_content"
-	    android:layout_below="@+id/image_button"  
-    />
-	<Button
+        android:id="@+id/label_text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_button"
+        android:text="@string/text_color" />
+
+    <Button
         android:id="@+id/color_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pick_color"
-        android:layout_below="@+id/label_text_color" 
-    />
-    <ImageView android:id="@+id/color_picked_image"
-	    android:layout_width="40dp"
-	    android:layout_height="40dp"
-	    android:layout_marginTop="2dip"   
-	    android:layout_toRightOf="@+id/color_picker"
-	    android:layout_alignTop="@+id/color_picker"
-	    android:contentDescription="@string/text_color"
-	/>
-      <com.google.ads.AdView android:id="@+id/adView"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         ads:adUnitId="a14e1f98d3d484a"
-                         ads:adSize="BANNER"
-                         ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID"
-                         ads:loadAdOnCreate="true"
-                         android:layout_above="@+id/ok_button" />
+        android:layout_below="@+id/label_text_color"
+        android:text="@string/pick_color" />
+
+    <ImageView
+        android:id="@+id/color_picked_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/color_picker"
+        android:layout_marginTop="3dip"
+        android:layout_toRightOf="@+id/color_picker"
+        android:contentDescription="@string/text_color" />
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ok_button"
+        android:layout_alignParentRight="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="a14e1f98d3d484a"
+        ads:loadAdOnCreate="true"
+        ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID" />
+
     <Button
         android:id="@+id/ok_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ok"
         android:layout_alignParentBottom="true"
-		android:layout_alignParentRight="true"
-    />
+        android:layout_alignParentRight="true"
+        android:text="@string/ok" />
+
     <Button
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        android:layout_toLeftOf="@+id/ok_button"
         android:layout_alignTop="@+id/ok_button"
-    />
+        android:layout_toLeftOf="@+id/ok_button"
+        android:text="@string/cancel" />
+
 </RelativeLayout>

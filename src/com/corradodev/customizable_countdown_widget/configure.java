@@ -21,6 +21,7 @@ import android.os.Bundle;
 //import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class configure extends Activity{
     private int mSelectedMonth;
     private int mSelectedDay;
 	private int mSelectedColor;
+	private CheckBox mChkHideDate;
 	private String mImage;
 	private Context self = this;
     private EditText mTxtDate;
@@ -104,6 +106,8 @@ public class configure extends Activity{
         	mSelectedDay=mCal.get(Calendar.DAY_OF_MONTH);
         	mTxtDate.setText(mSelectedMonth+1 + "-" + mSelectedDay + "-" +mSelectedYear);
         }
+        mChkHideDate = (CheckBox) findViewById(R.id.hide_date);
+        mChkHideDate.setChecked(mPrefs.getBoolean("HideDate-" + mAppWidgetId, false));
         //Color Picker
         Button mBtnColor = (Button) findViewById(R.id.color_picker);
         mImgSelectedColor=(ImageView)findViewById(R.id.color_picked_image);
@@ -230,6 +234,7 @@ public class configure extends Activity{
 			edit.putString("Color-" + mAppWidgetId, Integer.toString(mSelectedColor));
 			edit.putString("Image-" + mAppWidgetId, mImage);
 			edit.putString("WidgetSize-" + mAppWidgetId, mWidgetSize);
+			edit.putBoolean("HideDate-" + mAppWidgetId, mChkHideDate.isChecked());
 			edit.commit();
 			
 			// fire an update to display initial state of the widget

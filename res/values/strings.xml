@@ -10,6 +10,7 @@
     <string name="text_color">Text Color:</string>
     <string name="pick_color">Pick Color</string>
     <string name="pick_image">Pick Image</string>
+    <string name="hide">Hide</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="main_text">"Thanks for downloading my widget!\r\n\r\nA widget is an application for your home screens.  Below is a video that explains more on widgets on the most common phones.\r\nIf it does not apply then google 'How do I add widgets on [YOUR PHONE]'.\r\n\r\nI hope you enjoy using the widget I built.  Feel free to email any feedback or questions to app@corradodev.com\r\n"</string>
